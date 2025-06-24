@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace AnimationDemo
 {
@@ -11,10 +12,10 @@ namespace AnimationDemo
     public class YBotController : MonoBehaviour
     {
         private static readonly int IS_WALKING = Animator.StringToHash("IsWalking");
+        private static readonly int IS_RUNNING = Animator.StringToHash("IsRunning");
         
         [SerializeField] private Animator animator;
-        private static readonly int IS_RUNNING = Animator.StringToHash("IsRunning");
-
+        
         private void Update()
         {
             ControllMovement();
@@ -26,6 +27,5 @@ namespace AnimationDemo
             animator.SetBool(IS_RUNNING, Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift));
         }
     }
-
 }
 
